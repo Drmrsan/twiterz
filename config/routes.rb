@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   get 'home' => "pages#home"
-  get '/users/:id' => "pages#profile"
+  get '/user/:id' => "pages#profile"
   get 'explore' => "pages#explore"
+
+  resources :posts
 
   
 end

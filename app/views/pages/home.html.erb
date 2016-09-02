@@ -6,20 +6,27 @@
 		  </div>
 		</div>
 	</div>
-	<div class="col-xs-6">
-		<div class="panel panel-default">
-		  <div class="panel-body">
-		    <p>feed</p>
+
+<div class="col-xs-6">
+	<%= render "components/post_form" %> <br><br>
+	<% for @p in @posts %>
+		<div class="panel panel-default post-panel">
+		  <div class="panel-body row">
+		    <div class="col-sm-1">
+		    	<img src="/avatar.png" height="50px" alt="">
+		    </div>
+		    <div class="col-sm-11">
+		    	<div class="post-content">
+		    		<p class="post-title"><%= User.find(@p.user_id).username %> - <%= @p.created_at.to_formatted_s(:short) %></p>
+		    		<p><%= @p.content %></p>
+		    	</div>
+		    </div>
+		    <div class="col-sm-12">
+		    	links
+		    </div>
 		  </div>
 		</div>
-	</div>
-	<div class="col-xs-3">
-		<div class="panel panel-default">
-		  <div class="panel-body">
-		    <p>about</p>
-		  </div>
-		</div>
-	</div>
+	<% end %>
 </div>
 
 <div class="row">
